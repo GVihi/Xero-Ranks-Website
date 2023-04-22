@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body {
+           /* background-image: linear-gradient(to bottom right, #00004d, black); */
+           background-color: #00004d;
+           background-image: url('bgimg.jpg');
+           background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .center{
+            margin: auto;
+            padding: 5px;
+            text-align: center;
+        }
+        .gold{
+            color: #ffd230;
+            text-align: center;
+            text-shadow: 0 0 10px #ffd230;
+        }
+        .provided{
+            text-align: center;
+            color: white;
+        }
+        .grid-container {
+            display: grid;
+            margin: 0px;
+            grid-template-columns: auto auto auto auto auto auto;
+            padding: 10px;
+            overflow: scroll;
+            overflow-y: hidden;
+        }
+        .grid-item {
+            padding: 1px;
+            /*font-size: 30px;*/
+            text-align: center;
+        }
+        .image {
+            opacity: 0.9;
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #00004d; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fde89b; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffd230; 
+        }
+    </style>
+<title>Xero Ranks</title>
+<link rel="icon" type="image/png" href="image.png"/>
+</head>
+<body>
+    <div class="center">
+        <img src="logo.webp" width="220" height="80">
+        <div class="gold"><b>RANKS</b></div>
+        <div class="provided"><i>Images provided by </i><a href="https://xero.gg/player/TaBiiiC"><b class="gold">TaBiiiC</b></a></div>
+        <div class="provided"><i>Site made by </i><a href="https://xero.gg/player/Ashlek"><b class="gold">Ashlek</b></a><i>, hosted by </i><a href="https://xero.gg/player/Dekirai"><b class="gold">Dekiari</b></a></div>
+    </div>
+    <div class="grid-container gold">
+        <div class="grid-item image"><img src="Xero_Ranks_Rookie.png" width="369px" height="700px"></div>
+        <div class="grid-item image"><img src="Xero_Ranks_Semi_Pro.png" width="369px" height="700px"></div>
+        <div class="grid-item image"><img src="Xero_Ranks_Pro.png" width="369px" height="700px"></div>
+        <div class="grid-item image"><img src="Xero_Ranks_Expert.png" width="369px" height="700px"></div>
+        <div class="grid-item image"><img src="Xero_Ranks_Master.png" width="369px" height="700px"></div>
+        <div class="grid-item image"><img src="Xero_Ranks_Grand_Master.png" width="369px" height="700px"></div>
+    </div>
+</body>
