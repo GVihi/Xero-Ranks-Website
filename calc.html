@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body {
+           /* background-image: linear-gradient(to bottom right, #00004d, black); */
+           background-color: #00004d;
+           background-image: url('bgimg.jpg');
+           background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .center{
+            margin: auto;
+            padding: 5px;
+            text-align: center;
+        }
+        .gold{
+            color: #ffd230;
+            text-align: center;
+            text-shadow: 0 0 10px #ffd230;
+        }
+    </style>
+    <title>Xero EXP Calculator</title>
+    <link rel="icon" type="image/png" href="image.png"/>
+</head>
+
+<body>
+    <div class="center">
+        <img src="logo.webp" width="220" height="80">
+        <div class="gold"><b>EXP Calculator</b></div>
+        <br>
+    </div>
+
+    <div id="test" class="gold">
+
+    </div>
+
+    <script>
+        const exp = [0, 3000, 3200, 3400, 3600, 4000, 4400, 4800, 5200, 5600, 6400, 7200, 8000, 8800, 9600, 10960, 12320, 13680, 15040, 16400, 18710,
+                       21020, 2330, 25640, 27950, 31880, 35810, 39740, 43670, 47600, 53100, 58600, 64100, 69600, 75100, 82800, 90500, 98200, 105900, 113600, 124380,
+                       135160, 145940, 156720, 167500, 179360, 191220, 203080, 214940, 226800, 239850, 252900, 265950, 279000, 292050, 306410, 320770, 335130, 349490, 363850, 378210,
+                       392570, 406930, 421290, 435650, 450010, 464370, 478730, 493090, 507450, 521810, 536170, 550530, 564890, 579250, 593610, 607970, 622330, 636690, 651050, 665410,
+                       679770, 694130, 708490, 722850, 737210, 751570, 765930, 780290, 794650, 809010, 823370, 837730, 852090, 866450, 880810, 895170, 909530, 923890, 938250, 952610,
+                       966970, 981330, 995690, 1010050, 1024410, 1038770, 1053130, 1067490, 1081850, 1096210, 1110570, 1124930, 1139290, 1153650, 1168010, 1182370, 1196730, 1211090, 1225450, 1239810];
+        document.getElementById("test").innerHTML = exp[120];
+
+    </script>
+
+</body>
