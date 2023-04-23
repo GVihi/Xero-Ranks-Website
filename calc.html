@@ -91,15 +91,15 @@
         }
 
         function calculateCurrent(){
+            if(document.forms["totalExp"]["current_exp"].value == "" || document.forms["totalExp"]["current_rank"].value == ""){
+                alert("Form cannot be left empty!");
+                return false;
+            }
+
             let curr_xp = document.forms["totalExp"]["current_exp"].valueAsNumber;
             let curr_rank = document.forms["totalExp"]["current_rank"].valueAsNumber;
 
             //alert(curr_xp + " " + curr_rank);
-
-            if(curr_xp == "" || curr_rank == ""){
-                alert("Farm cannot be left empty!");
-                return false;
-            }
 
             if (curr_xp < 0 || curr_xp > 1239810){
                 alert("Current EXP cannot be lower than 0 or greater than 1239810!");
