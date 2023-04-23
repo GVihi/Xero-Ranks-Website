@@ -76,18 +76,6 @@
     </style>
     <title>Xero EXP Calculator</title>
     <link rel="icon" type="image/png" href="image.png"/>
-</head>
-
-<body>
-    <div class="center">
-        <img src="logo.webp" width="220" height="80">
-        <div class="gold"><b>EXP Calculator</b></div>
-        <br>
-    </div>
-
-    <div id="test" class="gold">
-
-    </div>
 
     <script>
         const exp = [0, 3000, 3200, 3400, 3600, 4000, 4400, 4800, 5200, 5600, 6400, 7200, 8000, 8800, 9600, 10960, 12320, 13680, 15040, 16400, 18710,
@@ -98,13 +86,64 @@
                        966970, 981330, 995690, 1010050, 1024410, 1038770, 1053130, 1067490, 1081850, 1096210, 1110570, 1124930, 1139290, 1153650, 1168010, 1182370, 1196730, 1211090, 1225450, 1239810];
         //document.getElementById("test").innerHTML = exp[120];
 
+        function calculateDesired(){
+
+        }
+
+        function calculateCurrent(){
+            let curr_xp = document.forms["totalExp"]["current_exp"].valueAsNumber;
+            let curr_rank = document.forms["totalExp"]["current_rank"].valueAsNumber;
+
+            //alert(curr_xp + " " + curr_rank);
+
+            if(curr_xp == "" || curr_rank == ""){
+                alert("Farm cannot be left empty!");
+                return false;
+            }
+
+            if (curr_xp < 0 || curr_xp > 1239810){
+                alert("Current EXP cannot be lower than 0 or greater than 1239810!");
+                return false;
+            }
+
+            if(curr_rank < 0 || curr_rank > 120){
+                alert("Current Rank cannot be lower than 0 or greater than 120!");
+                return false;
+            }
+
+            let sum = curr_xp;
+            for(let i = 0; i <= curr_rank; i++){
+                sum += exp[i];
+            }
+
+            //alert("The total EXP you have gained is: " + sum);
+            document.getElementById("resultCurr").innerHTML = "The total EXP you have gained so far is " + sum;
+        }
+
     </script>
+
+</head>
+
+<body>
+    <div class="center">
+        <img src="logo.webp" width="220" height="80">
+        <div class="gold"><b>EXP Calculator</b></div>
+        <br>
+    </div>
+
+    <!--
+    <div id="test" class="gold">
+        <script>
+            document.getElementById("test").innerHTML = exp[120];
+        </script>
+    </div>
+    -->
 
     <div class="row">
         <div class="column">
             <p class="gold">Total gained EXP</p>
             <div id="form">
-                <form>
+                <form name="totalExp">
                     <label for="current_exp" class="provided">Current EXP</label>
                     <input type="number" id="current" name="current_exp" min="0" max="1239810">
 
@@ -112,7 +151,13 @@
                     <input type="number" id="currentr" name="current_rank" placeholder="0-120" min="0" max="120">
 
                     <br>
-                    <button type="submit"><b>Calculate</b></button>
+                    <button type="button" onclick="calculateCurrent()"><b>Calculate</b></button>
+
+                    <br>
+                    <br>
+                    <div id="resultCurr" class="gold">
+
+                    </div>
                 </form>
             </div>
         </div>
@@ -120,15 +165,15 @@
         <div class="column">
             <p class="gold">Required EXP to reach rank</p>
             <div id="form">
-                <form>
+                <form name="requiredExp">
                     <label for="current_exp" class="provided">Current EXP</label>
                     <input type="number" id="current" name="current_exp" min="0" max="1239810">
 
                     <label for="current_rank" class="provided">Current Rank</label>
                     <input type="number" id="currentr" name="current_rank" placeholder="0-120" min="0" max="120">
 
-                    <label for="rank" class="provided">Rank You Want To Reach</label>
-                    <input type="number" id="ranktoget" name="rank" placeholder="0-120" min="0" max="120">
+                    <label for="rank" class="provided">Desired Rank</label>
+                    <input type="number" id="desired" name="rank" placeholder="0-120" min="0" max="120">
 
                     <br>
                     <button type="submit"><b>Calculate</b></button>
