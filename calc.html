@@ -87,6 +87,51 @@
         //document.getElementById("test").innerHTML = exp[120];
 
         function calculateDesired(){
+            if(document.forms["requiredExp"]["current_exp"].value == "" || document.forms["requiredExp"]["current_rank"].value == "" || document.forms["requiredExp"]["rank"].value == ""){
+                alert("Form cannot be left empty!");
+                return false;
+            }
+
+            let curr_xp = document.forms["requiredExp"]["current_exp"].valueAsNumber;
+            let curr_rank = document.forms["requiredExp"]["current_rank"].valueAsNumber;
+            let rank = document.forms["requiredExp"]["rank"].valueAsNumber;
+
+            console.log("Current XP: " + curr_xp);
+            console.log("Current Rank: " + curr_rank);
+            console.log("Desired Rank: " + rank);
+
+            if (curr_xp < 0 || curr_xp > 1239810){
+                alert("Current EXP cannot be lower than 0 or greater than 1239810!");
+                return false;
+            }
+
+            if(curr_rank < 0 || curr_rank > 120){
+                alert("Current Rank cannot be lower than 0 or greater than 120!");
+                return false;
+            }
+
+            if(rank < 0 || rank > 120){
+                alert("Rank cannot be lower than 0 or greater than 120!");
+                return false;
+            }
+
+            if(curr_rank > rank){
+                alert("Current rank cannot be higher than deisred rank!")
+                return false;
+            }
+
+            let desired_exp = 0;
+
+            for(let i = curr_rank + 1; i <= rank; i++){
+                desired_exp += exp[i];
+            }
+
+            console.log("Desired EXP: " + desired_exp);
+
+            desired_exp -= curr_xp;
+            console.log("Desired EXP: " + desired_exp);
+            document.getElementById("resultDes").innerHTML = "The total required EXP necessary to reack rank " + rank + " is " + desired_exp;
+
 
         }
 
@@ -176,7 +221,13 @@
                     <input type="number" id="desired" name="rank" placeholder="0-120" min="0" max="120">
 
                     <br>
-                    <button type="submit"><b>Calculate</b></button>
+                    <button type="button" onclick="calculateDesired()"><b>Calculate</b></button>
+
+                    <br>
+                    <br>
+                    <div id="resultDes" class="gold">
+
+                    </div>
                 </form>
             </div>
         </div>
