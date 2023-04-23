@@ -2,7 +2,6 @@
 <head>
     <style>
         body {
-           /* background-image: linear-gradient(to bottom right, #00004d, black); */
            background-color: #00004d;
            background-image: url('bgimg.jpg');
            background-attachment: fixed;
@@ -17,6 +16,62 @@
             color: #ffd230;
             text-align: center;
             text-shadow: 0 0 10px #ffd230;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 48%;
+            padding: 10px;
+            color:#ffd230;
+            text-align: center;
+            margin: 1%;
+            margin-top: 35px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 25px;
+            border: 1px solid #ffd230;
+            height: 500px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 3px;
+            margin-top: 25px;
+            text-align: left;
+        }
+        .provided{
+            text-align: center;
+            color: white;
+        }
+        input[type="number"]{
+            background: rgba(255,255,255, 0.25);
+            border: 1px solid white;
+            border-radius: 25px;
+            color:#ffd230;
+            padding: 5px;
+            width: 150px;
+        }
+        ::placeholder{
+            color:#ffd230;
+        }
+        button{
+            background-color: rgba(255, 255, 255, 0.1);
+            color:#ffd230;
+            border: 1px solid white;
+            border-radius: 25px;
+            margin-top: 25px;
+            width: 150px;
+            font-size: 15px;
+            padding: 5px;
         }
     </style>
     <title>Xero EXP Calculator</title>
@@ -41,8 +96,45 @@
                        392570, 406930, 421290, 435650, 450010, 464370, 478730, 493090, 507450, 521810, 536170, 550530, 564890, 579250, 593610, 607970, 622330, 636690, 651050, 665410,
                        679770, 694130, 708490, 722850, 737210, 751570, 765930, 780290, 794650, 809010, 823370, 837730, 852090, 866450, 880810, 895170, 909530, 923890, 938250, 952610,
                        966970, 981330, 995690, 1010050, 1024410, 1038770, 1053130, 1067490, 1081850, 1096210, 1110570, 1124930, 1139290, 1153650, 1168010, 1182370, 1196730, 1211090, 1225450, 1239810];
-        document.getElementById("test").innerHTML = exp[120];
+        //document.getElementById("test").innerHTML = exp[120];
 
     </script>
+
+    <div class="row">
+        <div class="column">
+            <p class="gold">Total gained EXP</p>
+            <div id="form">
+                <form>
+                    <label for="current_exp" class="provided">Current EXP</label>
+                    <input type="number" id="current" name="current_exp" min="0" max="1239810">
+
+                    <label for="current_rank" class="provided">Current Rank</label>
+                    <input type="number" id="currentr" name="current_rank" placeholder="0-120" min="0" max="120">
+
+                    <br>
+                    <button type="submit"><b>Calculate</b></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="column">
+            <p class="gold">Required EXP to reach rank</p>
+            <div id="form">
+                <form>
+                    <label for="current_exp" class="provided">Current EXP</label>
+                    <input type="number" id="current" name="current_exp" min="0" max="1239810">
+
+                    <label for="current_rank" class="provided">Current Rank</label>
+                    <input type="number" id="currentr" name="current_rank" placeholder="0-120" min="0" max="120">
+
+                    <label for="rank" class="provided">Rank You Want To Reach</label>
+                    <input type="number" id="ranktoget" name="rank" placeholder="0-120" min="0" max="120">
+
+                    <br>
+                    <button type="submit"><b>Calculate</b></button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
